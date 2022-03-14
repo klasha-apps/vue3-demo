@@ -149,8 +149,7 @@
 }
 </style>
 <script>
-import { mapGetters } from "vuex";
-import klasha from "vue3-klasha";
+import klasha from "vue3-klasha/src";
 import { v4 as uuidv4 } from "uuid";
 
 export default {
@@ -164,7 +163,7 @@ export default {
       phoneNumber: "+2347032320477",
       merchantKey:
         "W2mbGtdx5vKCepFaUm2CqdzebaVW9z22shubB4xFbKTR3g4sL72+7qNQYHTUEfs0my1e/hAO1Nkdx9YbXTjUOg==",
-      amount: this.cartAmount,
+      amount: this.$store.getters.cartAmount,
       sourceCurrency: "NGN",
       destinationCurrency: "NGN",
       txRef: uuidv4(),
@@ -173,9 +172,6 @@ export default {
       paymentDescription: "Some Shopping",
       paymentType: "",
     };
-  },
-  computed: {
-    ...mapGetters(["cartAmount"]),
   },
   methods: {
       onClose(){
